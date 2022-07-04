@@ -57,7 +57,7 @@
                <% } %>
 
                <% if (instance.status != "Available") { %>
-                <span>(Due: <%= instance.due_back %> )</span>
+                <span>(Due: <%= instance.due_back_formatted %>)</span>
                <% } %>
             </li>
             <% }) %>
