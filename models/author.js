@@ -9,7 +9,7 @@ const AuthorSchema = new Schema({
   date_of_death: { type: Date },
 });
 
-AuthorSchema.virtual("name").get(() => {
+AuthorSchema.virtual("name").get(function () {
   let fullName = "";
   if (this.first_name && this.family_name) {
     fullName = this.family_name + ", " + this.first_name;
@@ -21,7 +21,7 @@ AuthorSchema.virtual("name").get(() => {
   return fullName;
 });
 
-AuthorSchema.virtual("lifespan").get(() => {
+AuthorSchema.virtual("lifespan").get(function ()  {
   let lifetime_string = "";
   if (this.date_of_birth) {
     lifetime_string = this.date_of_birth.getYear().toString();
@@ -33,7 +33,7 @@ AuthorSchema.virtual("lifespan").get(() => {
   return lifetime_string;
 });
 
-AuthorSchema.virtual("url").get(() => {
+AuthorSchema.virtual("url").get(function ()  {
   return `/catalog/author/${this._id}`;
 });
 
