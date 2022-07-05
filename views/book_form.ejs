@@ -67,8 +67,9 @@
                 <% authors.forEach(author => { %>
                 <% if (book) { %>
                 <option value=<%= author._id %>
-                  selected=<%= author._id.toString() ===
-                  book.author._id.toString() ? "selected" : false %> > <%=
+                  <%= author._id.toString() ===
+                  book.author._id.toString()  || author._id.toString() === book.author 
+                  ? "selected" : "" %> > <%=
                   author.name %>
                 </option>
                 <% } else { %>
