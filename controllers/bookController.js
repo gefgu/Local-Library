@@ -40,8 +40,6 @@ exports.book_list = (req, res, next) => {
     if (err) {
       return next(err);
     }
-
-    console.log(list[0].url);
   });
 
   Book.find({}, "title author")
