@@ -47,8 +47,8 @@
             <div class="form-group">
               <label for="name">Genre:</label>
               <input type="text" id="name" class="form-control"
-              placeholder="Fantasy, Poetry etc." name="name" value=<%= undefined
-              === genre ? "" : genre.name %> >
+              placeholder="Fantasy, Poetry etc." name="name" <%- undefined
+              === genre ? "" : `value="${genre.name}"` %> >
               <button class="btn btn-primary" type="submit">Submit</button>
             </div>
           </form>
