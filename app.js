@@ -12,8 +12,9 @@ const compression = require("compression");
 const helmet = require("helmet");
 
 var app = express();
-const mongoDB =
+const dev_db_url =
   "mongodb+srv://gefgu:A6FeN%40uN@cluster0.md7sb.mongodb.net/local_library?retryWrites=true&w=majority";
+const mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -30,7 +31,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(compression());
-app.use(helmet())
+app.use(helmet());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
