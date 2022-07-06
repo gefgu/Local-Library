@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= title %></title>
+    <title><%- title %></title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -41,23 +41,23 @@
           </ul>
         </div>
         <div class="col-sm-10">
-          <h1><%= title %></h1>
+          <h1><%- title %></h1>
           <% if (bookinstance_list) { %>
           <ul>
             <% bookinstance_list.forEach(instance => { %>
             <li>
-              <a href=<%= instance.url %> > <%= instance.book.title %> : <%= instance.imprint %></a>
+              <a href=<%- instance.url %> > <%- instance.book.title %> : <%- instance.imprint %></a>
               -
               <% if (instance.status == "Available") { %>
-               <span class="text-success"> <%= instance.status %> </span>
+               <span class="text-success"> <%- instance.status %> </span>
               <% } else if (instance.status == "Maintenance") { %>
-                <span class="text-danger"> <%= instance.status %> </span>
+                <span class="text-danger"> <%- instance.status %> </span>
                <% } else { %>
-                <span class="text-warning"> <%= instance.status %> </span>
+                <span class="text-warning"> <%- instance.status %> </span>
                <% } %>
 
                <% if (instance.status != "Available") { %>
-                <span>(Due: <%= instance.due_back_formatted %>)</span>
+                <span>(Due: <%- instance.due_back_formatted %>)</span>
                <% } %>
             </li>
             <% }) %>
