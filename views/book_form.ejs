@@ -47,8 +47,8 @@
             <div class="form-group">
               <label for="title">Title: </label>
               <input id="title" class="form-control" type="text"
-              placeholder="Name of book" name="title" required="true" value=<%=
-              undefined === book ? '' : book.title %> >
+              placeholder="Name of book" name="title" required="true" 
+              <%- book === undefined ? "" : `value="${book.title}"` %> >
             </div>
             <div class="form-group">
               <label for="author">Author: </label>
