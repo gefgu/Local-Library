@@ -345,8 +345,6 @@ exports.book_update_post = [
       _id: req.params.id,
     });
 
-    console.log("Here");
-
     if (!errors.isEmpty()) {
       async.parallel(
         {
